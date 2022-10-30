@@ -1,4 +1,4 @@
-﻿@model FirstASPMVCApp.Models.DogViewModel;
+﻿@model List<FirstASPMVCApp.Models.DogViewModel>;
 
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -7,6 +7,12 @@
 }
 
 <h1>Hello world bro!</h1>
-<h4>A dog name @Model.Name says hello.</h4>
-<h5>@Model.Name is @Model.Age years old.</h5>
+
+<ul>
+    @foreach (var dog in Model)
+    {
+        <li>@dog.Name (@dog.Age)</li>
+    }
+</ul>
+
 <p>This is the index page of the helloworld controller.</p>

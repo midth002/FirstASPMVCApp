@@ -6,16 +6,24 @@ namespace FirstASPMVCApp.Controllers
     public class HelloWorldController : Controller
     {
 
+        private static List<DogViewModel> dogs = new List<DogViewModel>();
+
+
         public IActionResult Index()
         {
-            DogViewModel doggo = new DogViewModel()
-            { Name = "Ollie", Age = 1 }; 
-            return View(doggo);
+            return View(dogs);
         }
 
         public IActionResult Create()
         {
-            return View();
+            var dogVm = new DogViewModel();
+            return View(dogVm);
+        }
+
+        public IActionResult CreateDog(DogViewModel dogViewModel)
+        {
+            dogs.Add(dogViewModel);
+            return RedirectToAction(nameof(Index));
         }
 
         public string Hello()
