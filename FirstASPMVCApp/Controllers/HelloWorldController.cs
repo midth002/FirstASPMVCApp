@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using FirstASPMVCApp.Models;
 
 namespace FirstASPMVCApp.Controllers
 {
@@ -6,6 +7,13 @@ namespace FirstASPMVCApp.Controllers
     {
 
         public IActionResult Index()
+        {
+            DogViewModel doggo = new DogViewModel()
+            { Name = "Ollie", Age = 1 }; 
+            return View(doggo);
+        }
+
+        public IActionResult Create()
         {
             return View();
         }
